@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, Calibri, Helvetica, sans-serif;
+    background-color: white;
+    font-size: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+  
+nav {
+    top: 0;
+    width: 100%;
+    position: fixed;
+    background-color: rgb(40, 40, 40);
+    box-shadow: 0 2px 4px black;
+ }
+  
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+  
+nav ul li {
+    color: white;
+    display: block;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.5s;
+}
+    
+nav ul li a {
+    color: #fff;
+}
+  
+nav ul li:hover {
+    background-color: rgb(120, 0, 0);
+    cursor: pointer;
+}
+
+/* Show dropdown menu when hovering over list item */
+#projects:hover > .dropdown, .dropdown:hover {
+    transition-duration: 0.3s;
+    visibility: visible;
+    opacity: 1;
+    /* display: block; */
+}
+
+.dropdown {
+    background-color: rgb(40, 40, 40);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s linear, opacity 0.3s linear;
+    min-width: 11rem;
+    position: absolute;
+    margin-top: 1rem;
+    left: 0;
+    /* display: none; */
+}
+
+.dropdown-item {
+    clear: both;
+    width: 100%;
+    padding: 0.75rem;
+}
+
+.nav-left {
+    float: left;
+    font-family: "Dancing Script", cursive;
+    font-size: 2em;
+    padding: 0.2em;
+}
+
+.nav-right {
+    float: right;
+    letter-spacing: 0.1em;
+    padding: 1em;
+}
+
+.img-float-right {
+    float: right;
+    max-width: 40%;
+    height: auto;
+    margin-left: 2%;
+}
+
+.img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav + .content {
+    padding-top: 4rem;
+}
+
+.content {
+    margin-left: 6em;
+    margin-right: 6em;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.container {
+    display: inline-block;
+    vertical-align: top;
+    width: 500px;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 3em;
+}
+
+/* clearfix hack.  See https://www.w3schools.com/css/css_float.asp */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.2em;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+hr {
+    margin-top: 4em;
+    margin-bottom: 4em;
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(40, 40, 40, 0), rgba(40, 40, 40, 1), rgba(40, 40, 40, 0));
+}
+
+.screenshot {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 2px 4px black;
+}
+
+.project-link {
+    font-size: 1.1em;
+    font-weight: bold;
+    float:right;
+}
+
+.content a:hover {
+    color: rgb(120, 0, 0);
+}
+
+.project-desc {
+    text-align: left;
+}
+
+.footer {
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 80%;
+}
+
+@media screen and (max-width: 1000px) {
+    .content {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+}
+
+/* Optimize for mobile devices */
+@media screen and (max-width: 550px) {
+    .content {
+        margin-left: 0.25em;
+        margin-right: 0.25em;
+    }
+    .container {
+        width: 100%;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+    .nav-right {
+        float: left;
+        font-size: 0.9em;
+        padding: 0.25em;
+    }
+    .nav-left {
+        font-size: 1em;
+        padding: 0.2em;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    nav + .content {
+        padding-top: 2rem;
+    }
+    .dropdown {
+        margin-top: 0.35rem;
+    }
+
+}

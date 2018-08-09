@@ -1,0 +1,114 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kevin Perry</title>
+    <meta name="description" content="Kevin Perry">
+    <meta name="author" content="Kevin Perry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav role="navigation">
+        <ul>
+            <li class="nav-left">
+                <a href="index.html">Kevin Perry</a>
+            </li>
+            <li class="nav-right">
+                <a href="contact.html">CONTACT</a>
+            </li>
+            <li class="nav-right">
+                <a href="about.html">ABOUT</a>
+            </li>
+            <li class="nav-right" id="projects">
+                <a href="#">PROJECTS
+                    <i class="fas fa-caret-down"></i>
+                </a>
+                <ul class="dropdown">
+                    <li class="dropdown-item">
+                        <a href="https://github.com/k-perry/winphonic">Winphonic</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="web-paint.html">Web Paint</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="https://github.com/k-perry/pulse_observer">Pulse Observer</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content center-text">
+        <h1>Kevin Perry</h1>
+        <p style="font-size:1.3em;">
+            I'm a Computer Science graduate student at Georgia Tech. My interests include desktop development, web development, machine
+            learning, security, and more. Check out some of my work below.
+        </p>
+        <hr>
+        <div class="clearfix">
+            <div class="container">
+                <div class="container-title">Winphonic</div>
+                <img src="images/winphonic-ss-1.jpg" alt="Winphonic" class="screenshot">
+                <span class="project-desc">
+                    <p>
+                        Winphonic is an open source, portable, lightweight audio player for Windows. Supports MP3, OGG, ID3 tags, playlists, keyboard
+                        shortcuts, and more. The executable is only 200 KB and it uses a very small amount of memory.
+                    </p>
+                    <p><b>Made With:</b> C (and some C++)</p>
+                </span>
+                <p>
+                    <a href="winphonic.html" class="project-link">READ MORE
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </p>
+            </div>
+            <div class="container">
+                <div class="container-title">Web Paint</div>
+                <img src="images/web-paint-ss.jpg" alt="Web Paint" class="screenshot">
+                <span class="project-desc">
+                    <p>
+                        Web Paint is a simple web app for painting. Includes the following tools: brush, pencil, eraser, paint bucket, line, rectangle,
+                        and circle. Allows you to choose the brush size and color. Supports saving files to disk in PNG format.
+                    </p>
+                    <p><b>Made With:</b> HTML5, CSS, JavaScript (no frameworks)</p>
+                </span>
+                <p>
+                    <a href="web-paint.html" class="project-link">TRY IT OUT
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </p>
+            </div>
+            <div class="container">
+                <div class="container-title">Pulse Observer</div>
+                <img src="images/pulse-observer-ss.jpg" alt="Pulse Observer" class="screenshot">
+                <span class="project-desc">
+                    <p>
+                        Pulse Observer tracks the user's heart rate in real time using a webcam. It detects tiny variations in facial skin color
+                        that result from blood flow. It displays the pulse, pulse graph, and regions of interest in a GUI
+                        window.
+                    </p>
+                    <p><b>Made With:</b> Python, OpenCV, NumPy, SciPy, Dlib</p>
+                    
+                </span>
+
+                <a href="https://github.com/k-perry/pulse_observer" class="project-link">READ MORE
+                    <i class="fas fa-angle-right"></i>
+                </a>
+                </p>
+            </div>
+        </div>
+        <p class="footer">
+            Copyright &copy; 2018
+        </p>
+    </div>
+</body>
+
+</html>
