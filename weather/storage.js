@@ -1,7 +1,7 @@
 class Storage {
-    constructor() {
+    constructor(defaultLocation) {
         this.location;
-        this.defaultLocation = "Atlanta, GA";
+        this.defaultLocation = defaultLocation;
     }
 
     getLocation() {

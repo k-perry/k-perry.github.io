@@ -1,7 +1,11 @@
 // Initialize
-const storage = new Storage();
+const defaultLocation = "Atlanta, GA";
+const storage = new Storage(defaultLocation);     // Set default location
 const storageLocation = storage.getLocation();
 const weather = new Weather(storageLocation);
+
+let errorCount = 0;
+
 const ui = new UI();
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -35,13 +39,17 @@ function loadWeather() {
     })
     .catch(err => {
         // Error loading the weather for requested location
-        ui.hideLoading();
+        console.error("loadWeather():", err);
         const errorModal = M.Modal.getInstance(document.getElementById("error-modal"));
         errorModal.open();
-        console.error("loadWeather():", err);
-        storage.setLocation("Atlanta, GA");
-        weather.changeLocation("Atlanta, GA");
-        loadWeather();
+        errorCount += 1;
+        if (errorCount < 3)
+        {
+            ui.hideLoading();
+            storage.setLocation(defaultLocation);
+            weather.changeLocation(defaultLocation);
+            loadWeather();
+        }
     });
 }
 
