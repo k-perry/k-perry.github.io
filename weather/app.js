@@ -4,12 +4,10 @@ const storage = new Storage(defaultLocation);     // Set default location
 const storageLocation = storage.getLocation();
 const weather = new Weather(storageLocation);
 
-let errorCount = 0;
-
 const ui = new UI();
 
 document.addEventListener('DOMContentLoaded', function() {
-    loadWeather();
+    loadWeather(0);
     const modals = document.querySelectorAll('.modal');
     const tabs = document.querySelectorAll('.tabs');
     const modalInstances = M.Modal.init(modals);
@@ -30,7 +28,7 @@ document.getElementById("new-loc").addEventListener("keydown", (e) => {
 });
 
 // Load the weather
-function loadWeather() {
+function loadWeather(errorCount) {
     ui.showLoading()
     weather.getWeather()
     .then(results => {
@@ -43,12 +41,12 @@ function loadWeather() {
         const errorModal = M.Modal.getInstance(document.getElementById("error-modal"));
         errorModal.open();
         errorCount += 1;
-        if (errorCount < 3)
+        if (errorCount < 2)
         {
             ui.hideLoading();
             storage.setLocation(defaultLocation);
             weather.changeLocation(defaultLocation);
-            loadWeather();
+            loadWeather(errorCount);
         }
     });
 }
@@ -58,7 +56,7 @@ function changeLocation() {
     if (newLoc.value !== "") {
         storage.setLocation(newLoc.value);
         weather.changeLocation(newLoc.value);
-        loadWeather();
+        loadWeather(0);
     }
     newLoc.value = "";
 }
