@@ -36,26 +36,33 @@
                         <a href="https://github.com/k-perry/winphonic">Winphonic</a>
                     </li>
                     <li class="dropdown-item">
-                        <a href="web-paint.html">Web Paint</a>
+                        <a href="https://github.com/k-perry/pulse_observer">Pulse Observer</a>
                     </li>
                     <li class="dropdown-item">
-                        <a href="https://github.com/k-perry/pulse_observer">Pulse Observer</a>
+                        <a href="weather/index.html">Weather</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="web-paint.html">Web Paint</a>
                     </li>
                 </ul>
             </li>
         </ul>
     </nav>
 
-    <div class="content center-text">
-        <h1>Kevin Perry</h1>
-        <p style="font-size:1.3em;">
-            I'm a Computer Science graduate student at Georgia Tech. My interests include desktop development, web development, machine
-            learning, security, and more. Check out some of my work below.
-        </p>
-        <hr>
-        <div class="clearfix">
-            <div class="container">
-                <div class="container-title">Winphonic</div>
+    <div class="content">
+        <div class="center-text">
+            <h1>Kevin Perry</h1>
+            <p style="font-size:1.3em;">
+                I'm a Computer Science graduate student at Georgia Tech. My interests include desktop development, web development, machine
+                learning, security, and more. Check out some of my work below.
+            </p>
+        </div>
+        
+        <hr id="main-sep">
+        <div class="clearfix center-text">
+            <div class="card">
+                <div class="card-title left-text">Winphonic</div>
+                <hr>
                 <img src="images/winphonic-ss-1.jpg" alt="Winphonic" class="screenshot">
                 <span class="project-desc">
                     <p>
@@ -64,30 +71,16 @@
                     </p>
                     <p><b>Made With:</b> C (and some C++)</p>
                 </span>
+                <hr>
                 <p>
                     <a href="https://github.com/k-perry/winphonic" class="project-link">READ MORE
                         <i class="fas fa-angle-right"></i>
                     </a>
                 </p>
             </div>
-            <div class="container">
-                <div class="container-title">Web Paint</div>
-                <img src="images/web-paint-ss.jpg" alt="Web Paint" class="screenshot">
-                <span class="project-desc">
-                    <p>
-                        Web Paint is a simple web app for painting. Includes the following tools: brush, pencil, eraser, paint bucket, line, rectangle,
-                        and circle. Allows you to choose the brush size and color. Supports saving files to disk in PNG format.
-                    </p>
-                    <p><b>Made With:</b> HTML5, CSS, JavaScript (no frameworks)</p>
-                </span>
-                <p>
-                    <a href="web-paint.html" class="project-link">TRY IT OUT
-                        <i class="fas fa-angle-right"></i>
-                    </a>
-                </p>
-            </div>
-            <div class="container">
-                <div class="container-title">Pulse Observer</div>
+            <div class="card">
+                <div class="card-title left-text">Pulse Observer</div>
+                <hr>
                 <img src="images/pulse-observer-ss.jpg" alt="Pulse Observer" class="screenshot">
                 <span class="project-desc">
                     <p>
@@ -98,12 +91,52 @@
                     <p><b>Made With:</b> Python, OpenCV, NumPy, SciPy, Dlib</p>
                     
                 </span>
-
-                <a href="https://github.com/k-perry/pulse_observer" class="project-link">READ MORE
-                    <i class="fas fa-angle-right"></i>
-                </a>
+                <hr>
+                <p>
+                    <a href="https://github.com/k-perry/pulse_observer" class="project-link">READ MORE
+                        <i class="fas fa-angle-right"></i>
+                    </a>
                 </p>
             </div>
+            <br>
+            <div class="card">
+                <div class="card-title left-text">Weather</div>
+                <hr>
+                <img src="images/weather-ss.jpg" alt="Weather" class="screenshot">
+                <span class="project-desc">
+                    <p>
+                        Weather is a web app for checking the weather forecast of any location in the United States.  It shows the current weather conditions,
+                        daily forecast, and 7-day hourly forecast.  Weather data is retrieved using the <a href="https://www.weather.gov/documentation/services-web-api">
+                            National Weather Service API</a>.
+                    </p>
+                    <p><b>Made With:</b> HTML, CSS, JavaScript, Materialize</p>
+                </span>
+                <hr>
+                <p>
+                    <a href="weather/index.html" class="project-link">TRY IT OUT
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </p>
+            </div>
+            <div class="card">
+                <div class="card-title left-text">Web Paint</div>
+                <hr>
+                <img src="images/web-paint-ss.jpg" alt="Web Paint" class="screenshot">
+                <span class="project-desc">
+                    <p>
+                        Web Paint is a simple web app for painting. Includes the following tools: brush, pencil, eraser, paint bucket, line, rectangle,
+                        and circle. Allows you to choose the brush size and color. Supports saving files to disk in PNG format.
+                    </p>
+                    <p><b>Made With:</b> HTML, CSS, JavaScript</p>
+                </span>
+                <hr>
+                <p>
+                    <a href="web-paint.html" class="project-link">TRY IT OUT
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </p>
+            </div>
+
         </div>
         <p class="footer">
             Copyright &copy; 2018
