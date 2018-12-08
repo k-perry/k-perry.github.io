@@ -1,37 +1,36 @@
 const tools = ["brush", "pencil", "eraser", "fill", "line", "rect", "circle"];
 
-var _activeTool;
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
+let _activeTool;
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
 // Tool buttons
-var brushBtn = document.getElementById("brush");
-var pencilBtn = document.getElementById("pencil");
-var eraserBtn = document.getElementById("eraser");
-var fillBtn = document.getElementById("fill");
-var lineBtn = document.getElementById("line");
-var rectBtn = document.getElementById("rect");
-var circleBtn = document.getElementById("circle");
+const brushBtn = document.getElementById("brush");
+const pencilBtn = document.getElementById("pencil");
+const eraserBtn = document.getElementById("eraser");
+const fillBtn = document.getElementById("fill");
+const lineBtn = document.getElementById("line");
+const rectBtn = document.getElementById("rect");
+const circleBtn = document.getElementById("circle");
 
 // Options
-var colorOpt = document.getElementById("color");
-var sizeOpt = document.getElementById("size");
+const colorOpt = document.getElementById("color");
+const sizeOpt = document.getElementById("size");
 
 // File menu
-var fileBtn = document.getElementById("topbar-file-btn");
-var newBtn = document.getElementById("new");
-// var openBtn = document.getElementById("open");
-var saveBtn = document.getElementById("save");
+const fileBtn = document.getElementById("topbar-file-btn");
+const newBtn = document.getElementById("new");
+const saveBtn = document.getElementById("save");
 
 window.addEventListener("resize", resizeHandler);
 window.addEventListener("click", clickHandler)
 canvas.addEventListener("mousedown", canvasMouseDownHandler);
 canvas.addEventListener("mouseup", canvasMouseUpHandler);
 canvas.addEventListener("mousemove", canvasMouseMoveHandler);
-// canvas.addEventListener("mouseenter", setMousePos);
-var drag = false;
-var oldImg;
-var startPos = {x: 0, y: 0};
+
+let drag = false;
+let oldImg;
+let startPos = {x: 0, y: 0};
 
 resizeHandler();	        // Force canvas resize when first loading
 clearCanvas();
@@ -95,11 +94,6 @@ newBtn.onclick = function () {
     return false;
 };
 
-// openBtn.onclick = function () {
-//     hideFileMenu();
-//     return false;
-// };
-
 saveBtn.onclick = function () {
     hideFileMenu();
 
@@ -129,15 +123,11 @@ function resizeHandler() {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
 
-    // var csize = document.getElementById("canvas_size");
-    // csize.innerHTML = canvas.width + " x " + canvas.height + "px";
-
     // Restore the previous image data.
     ctx.putImageData(oldImg, 0, 0);
 }
 
 function clickHandler(e) {
-    // console.log(e);
     if (e.target.id !== "topbar-file-btn")
         hideFileMenu();
 }
@@ -152,8 +142,8 @@ function isFileMenuVisible() {
 
 function setActiveTool(tool) {
     // hideFileMenu();
-    var curr_tool;
-    for (var i = 0; i < tools.length; i++) {
+    let curr_tool;
+    for (let i = 0; i < tools.length; i++) {
         curr_tool = document.getElementById(tools[i]);
         if (tools[i] === tool) {
             curr_tool.classList.add("active");
@@ -174,7 +164,7 @@ function getActiveTool() {
 
 // Gets the current mouse position
 function getMousePos(e) {
-    var canvasRect = canvas.getBoundingClientRect();
+    const canvasRect = canvas.getBoundingClientRect();
     return {
         x: e.clientX - canvasRect.left,
         y: e.clientY - canvasRect.top
@@ -198,9 +188,9 @@ function hexColorToRGBA(hexString) {
         hexString = hexString.substring(1, 7);
 
     // String format = RRGGBB
-    var r = parseInt(hexString.substring(0, 2), 16);
-    var g = parseInt(hexString.substring(2, 4), 16);
-    var b = parseInt(hexString.substring(4, 6), 16);
+    const r = parseInt(hexString.substring(0, 2), 16);
+    const g = parseInt(hexString.substring(2, 4), 16);
+    const b = parseInt(hexString.substring(4, 6), 16);
 
     return [r, g, b, 255];
 }
@@ -212,7 +202,7 @@ function isArrayEqual(arr1, arr2) {
         return false;
     if (arr1.length !== arr2.length)
         return false;
-    for (var i = 0; i < arr1.length; i++) {
+    for (let i = 0; i < arr1.length; i++) {
         if (arr1[i] !== arr2[i])
             return false;
     }
@@ -228,13 +218,13 @@ function getPixelColor(img, canvasWidth, x, y) {
         //      greenIndex = redIndex + 1;
         //      blueIndex = redIndex + 2;
         //      alphaIndex = redIndex + 3;
-    var pixelRedIndex = (y * canvasWidth + x) * 4;
+    const pixelRedIndex = (y * canvasWidth + x) * 4;
     return [img.data[pixelRedIndex], img.data[pixelRedIndex + 1], img.data[pixelRedIndex + 2], img.data[pixelRedIndex + 3]];    
 }
 
 // Sets pixel color based on the (x, y) position.  color should be an RGBA array.
 function setPixelColor(img, canvasWidth, x, y, color) {
-    var pixelRedIndex = (y * canvasWidth + x) * 4;
+    const pixelRedIndex = (y * canvasWidth + x) * 4;
     img.data[pixelRedIndex] = color[0];         // Red
     img.data[pixelRedIndex + 1] = color[1];     // Green
     img.data[pixelRedIndex + 2] = color[2];     // Blue
@@ -244,7 +234,7 @@ function setPixelColor(img, canvasWidth, x, y, color) {
 
 function fill(img, startX, startY, newColor) {
 
-        var startColor = getPixelColor(img, canvas.width, startX, startY);
+        const startColor = getPixelColor(img, canvas.width, startX, startY);
 
         // No work to be done if the start pixel is already same color as the new color
         if (isArrayEqual(startColor, newColor))
@@ -252,7 +242,7 @@ function fill(img, startX, startY, newColor) {
         
         setPixelColor(img, canvas.width, startX, startY, newColor);
         
-        var pixelStack = [[startX, startY]];    // Push initial pixel coords onto stack
+        let pixelStack = [[startX, startY]];    // Push initial pixel coords onto stack
 
         // Added extra condition to prevent infinite looping and crashing the browser in case
         // something crazy happens.  This needs more testing.  15 million pixels is more than
@@ -264,7 +254,7 @@ function fill(img, startX, startY, newColor) {
             
             // Check pixel to the north.
             if (currY > 0) {
-                var oldColorNorth = getPixelColor(img, canvas.width, currX, currY - 1);
+                const oldColorNorth = getPixelColor(img, canvas.width, currX, currY - 1);
                 if (isArrayEqual(oldColorNorth, startColor)) {
                     // Only recolor the pixels that are the same color as the starting pixel
                     setPixelColor(img, canvas.width, currX, currY - 1, newColor);
@@ -274,7 +264,7 @@ function fill(img, startX, startY, newColor) {
 
             // Check pixel to the east.
             if (currX < canvas.width - 1) {
-                var oldColorEast = getPixelColor(img, canvas.width, currX + 1, currY);
+                const oldColorEast = getPixelColor(img, canvas.width, currX + 1, currY);
                 if (isArrayEqual(oldColorEast, startColor)) {
                     setPixelColor(img, canvas.width, currX + 1, currY, newColor);
                     pixelStack.push([currX + 1, currY]);
@@ -283,7 +273,7 @@ function fill(img, startX, startY, newColor) {
 
             // Check pixel to the south.
             if (currY < canvas.height - 1) {
-                var oldColorSouth = getPixelColor(img, canvas.width, currX, currY + 1);
+                const oldColorSouth = getPixelColor(img, canvas.width, currX, currY + 1);
                 if (isArrayEqual(oldColorSouth, startColor)) {
                     setPixelColor(img, canvas.width, currX, currY + 1, newColor);
                     pixelStack.push([currX, currY + 1]);
@@ -292,7 +282,7 @@ function fill(img, startX, startY, newColor) {
             
             // Check pixel to the west.
             if (currX > 0) {
-                var oldColorWest = getPixelColor(img, canvas.width, currX - 1, currY);
+                const oldColorWest = getPixelColor(img, canvas.width, currX - 1, currY);
                 if (isArrayEqual(oldColorWest, startColor)) {
                     setPixelColor(img, canvas.width, currX - 1, currY, newColor);
                     pixelStack.push([currX - 1, currY]);
@@ -307,8 +297,8 @@ function canvasMouseDownHandler(e) {
     hideFileMenu();
     if (e.buttons !== 1) return;    // Only draw if LEFT mouse button is pressed
     drag = true;
-    var tool = getActiveTool();
-    var size = document.getElementById("size_val").value;
+    const tool = getActiveTool();
+    const size = document.getElementById("size_val").value;
     ctx.beginPath();
     startPos = getMousePos(e);
     ctx.moveTo(startPos.x, startPos.y);
@@ -334,7 +324,7 @@ function canvasMouseDownHandler(e) {
         
         console.log(startPos);
         // The color picker form returns the color as a hex string (e.g. "#2D3F44").  Convert this to an array of integers.
-        var newColor = hexColorToRGBA(colorOpt.value);       
+        const newColor = hexColorToRGBA(colorOpt.value);       
        
         // Modifies the pixel colors in img
         fill(img, startPos.x, startPos.y, newColor);        
@@ -365,23 +355,19 @@ function canvasMouseDownHandler(e) {
 
 function canvasMouseMoveHandler(e) {
     if (!drag) return;
-    var tool = getActiveTool();
-    var currPos = getMousePos(e);
+    const tool = getActiveTool();
+    const currPos = getMousePos(e);
 
     if (tool === "brush" || tool === "pencil" || tool === "eraser") {
         ctx.lineTo(currPos.x, currPos.y);
         ctx.stroke();
     }
-    else if (tool === "fill") {
-        // TODO
-
-    }
     else if (tool === "rect") {
         // Restore old image (before drawing started) before displaying live preview of rectangle.
         ctx.putImageData(oldImg, 0, 0);
         ctx.beginPath();
-        var rectWidth = currPos.x - startPos.x;
-        var rectHeight = currPos.y - startPos.y;
+        const rectWidth = currPos.x - startPos.x;
+        const rectHeight = currPos.y - startPos.y;
         ctx.fillRect(startPos.x, startPos.y, rectWidth, rectHeight);
     }
     else if (tool === "line") {
@@ -395,10 +381,10 @@ function canvasMouseMoveHandler(e) {
         ctx.putImageData(oldImg, 0, 0);
         ctx.beginPath();
         // Distance = sqrt[ (x2-x1)^2 + (y2-y1)^2) ]
-        var distance = Math.sqrt(Math.pow(currPos.x - startPos.x, 2) + Math.pow(currPos.y - startPos.y, 2));
-        var radius = distance / 2;
-        var centerX = (startPos.x + currPos.x) / 2;
-        var centerY = (startPos.y + currPos.y) / 2;
+        const distance = Math.sqrt(Math.pow(currPos.x - startPos.x, 2) + Math.pow(currPos.y - startPos.y, 2));
+        const radius = distance / 2;
+        const centerX = (startPos.x + currPos.x) / 2;
+        const centerY = (startPos.y + currPos.y) / 2;
         ctx.arc(centerX, centerY, radius, 0, Math.PI * 2, true);
         ctx.closePath();
         ctx.fill();
@@ -409,9 +395,6 @@ function canvasMouseMoveHandler(e) {
 
 
 function canvasMouseUpHandler() {
-    // ctx.closePath();
-    // ctx.stroke();
-
     drag = false;
 }
 
