@@ -25,37 +25,26 @@
 </head>
 
 <body>
-    <nav role="navigation">
-        <ul>
-            <li class="nav-left">
-                <a href="index.html">Kevin Perry</a>
-            </li>
-            <li class="nav-right">
-                <a href="contact.html">CONTACT</a>
-            </li>
-            <li class="nav-right">
-                <a href="about.html">ABOUT</a>
-            </li>
-            <li class="nav-right" id="projects">
-                <a href="#">PROJECTS
-                    <i class="fas fa-caret-down"></i>
-                </a>
-                <ul class="dropdown">
-                    <li class="dropdown-item">
-                        <a href="https://github.com/k-perry/winphonic">Winphonic</a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a href="https://github.com/k-perry/pulse_observer">Pulse Observer</a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a href="weather/index.html">Weather</a>
-                    </li>
-                    <li class="dropdown-item">
-                        <a href="web-paint/web-paint.html">Web Paint</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+    <nav role="navigation" class="top-nav">
+        <a class="nav-title" href="index.html">Kevin Perry</a>
+        <div class="float-right">
+            <span class="nav-item dropdown-btn">
+                PROJECTS <i class="fa fa-caret-down"></i>
+            </span>
+            <div class="dropdown-content">
+                <a href="https://github.com/k-perry/winphonic">Winphonic</a>
+                <a href="https://github.com/k-perry/pulse_observer">Pulse Observer</a>
+                <a href="weather/index.html">Weather</a>
+                <a href="web-paint/web-paint.html">Web Paint</a>
+            </div>
+            <a class="nav-item" href="about.html">ABOUT</a>
+            <a class="nav-item" href="contact.html">CONTACT</a>
+        </div>
+
+        <!-- Show the menu button when screen is narrow -->
+        <a href="javascript:void(0);" class="nav-menu-btn" onclick="toggleNavMenu()">
+            <i class="fa fa-bars"></i>
+        </a>
     </nav>
 
     <div class="content">
@@ -87,7 +76,7 @@
             <li><b>Java</b></li>
             <li><b>SQL</b></li>
             <li><b>Git</b></li>
-           
+
         </ul>
 
         <p>For more information, please <a href="contact.html">contact me</a> to request a copy of my resume.</p>

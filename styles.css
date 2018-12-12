@@ -1,7 +1,3 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
     margin: 0;
     font-family: Roboto, Calibri, Helvetica, sans-serif;
@@ -12,141 +8,145 @@ body {
 a {
     text-decoration: none;
 }
-  
-nav {
+
+.top-nav {
     top: 0;
     width: 100%;
     position: fixed;
     background-color: rgb(40, 40, 40);
     box-shadow: 0 2px 4px black;
- }
-  
-nav ul {
-    list-style: none;
+    font-size: 1rem;
     margin: 0;
-    padding-left: 0;
 }
-  
-nav ul li {
-    color: white;
-    display: block;
-    position: relative;
-    text-decoration: none;
-    transition-duration: 0.5s;
-}
-    
-nav ul li a {
+
+.top-nav a {
     color: #fff;
-}
-  
-nav ul li:hover {
-    background-color: rgb(120, 0, 0);
-    cursor: pointer;
-}
-
-/* Show dropdown menu when hovering over list item */
-#projects:hover > .dropdown, .dropdown:hover {
+    text-align: center;
     transition-duration: 0.3s;
-    visibility: visible;
-    opacity: 1;
-    /* display: block; */
+    letter-spacing: 0.1rem;
 }
 
-.dropdown {
-    background-color: rgb(40, 40, 40);
+.nav-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    letter-spacing: 0;
+    padding: 0.5rem;
+    display: inline-block;
+}
+
+.nav-item {
+    padding: 1rem;
+    display: inline-block;
+}
+
+.float-right {
+    float: right;
+}
+
+.dropdown-btn {
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+    color: white;
+    padding: 1rem;
+    transition-duration: 0.3s;
+}
+
+.dropdown-content {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0.3s linear, opacity 0.3s linear;
-    min-width: 11rem;
     position: absolute;
-    margin-top: 1rem;
-    left: 0;
-    /* display: none; */
+    z-index: 999;
+    background-color: rgb(40, 40, 40);
+    min-width: 12rem;
 }
 
-.dropdown-item {
-    clear: both;
-    width: 100%;
+.dropdown-content a {
+    float: none;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    display: block;
+    text-align: left;
+}
+
+.nav-item:hover {
+    background: rgb(120, 0, 0);
+}
+
+.dropdown-content a:hover {
+    background: rgb(120, 0, 0);
+}
+
+.dropdown-btn:hover+.dropdown-content,
+.dropdown-content:hover {
+    transition-duration: 0.3s;
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+.nav-menu-btn {
+    display: none;
+    font-size: 1.5rem;
     padding: 0.75rem;
 }
 
-.nav-left {
-    float: left;
-    font-family: "Dancing Script", cursive;
-    font-size: 2em;
-    padding: 0.2em;
-}
-
-.nav-right {
-    float: right;
-    letter-spacing: 0.1em;
-    padding: 1em;
-}
-
-.img-float-right {
-    float: right;
-    max-width: 40%;
-    height: auto;
-    margin-left: 2%;
-}
-
-.img-center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-nav + .content {
+.top-nav+.content {
     padding-top: 4rem;
 }
 
 .content {
-    margin-left: 6em;
-    margin-right: 6em;
-}
-
-.center-text {
-    text-align: center;
+    margin-left: 6rem;
+    margin-right: 6rem;
 }
 
 .left-text {
     text-align: left;
 }
 
+.center-text {
+    text-align: center;
+}
+
+.right-text {
+    text-align: right;
+}
+
 .card {
     display: inline-block;
     vertical-align: top;
-    width: 500px;
-    margin: 1em;
-    padding: 1em 1.5em 1em 1.5em;
+    width: 30rem;
+    margin: 1rem;
+    padding: 1rem 1.5rem 1rem 1.5rem;
     border: 1px solid rgb(150, 150, 150);
-    box-shadow: 0 2px 4px grey;    
-    
+    box-shadow: 0 2px 4px grey;
 }
 
 .card-title {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-weight: bold;
-    /* margin-bottom: 0.5em; */
 }
 
 /* clearfix hack.  See https://www.w3schools.com/css/css_float.asp */
+
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
 }
 
+.title {
+    font-size: 3rem;
+}
 
-h1 {
-    font-size: 3em;
+.subtitle {
+    font-size: 1.25rem;
 }
 
 #main-sep {
-    margin-top: 4em;
-    margin-bottom: 4em;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
     border: 0;
-    height: 2px;
+    height: 0.25rem;
     background-image: linear-gradient(to right, rgba(40, 40, 40, 0), rgba(40, 40, 40, 1), rgba(40, 40, 40, 0));
 }
 
@@ -154,13 +154,13 @@ h1 {
     max-width: 100%;
     height: auto;
     border: 1px solid grey;
-    margin-top: 0.5em;
+    margin-top: 0.5rem;
 }
 
 .project-link {
-    font-size: 1.1em;
+    font-size: 1.1rem;
     font-weight: bold;
-    float:right;
+    float: right;
 }
 
 .content a:hover {
@@ -172,9 +172,14 @@ h1 {
 }
 
 .footer {
-    margin-top: 4rem;
+    margin-top: 3rem;
     text-align: center;
-    font-size: 80%;
+    font-size: 0.75rem;
+}
+
+.nav-menu-btn {
+    color: #fff;
+    display: none;
 }
 
 @media screen and (max-width: 1000px) {
@@ -184,34 +189,65 @@ h1 {
     }
 }
 
-/* Optimize for mobile devices */
-@media screen and (max-width: 550px) {
-    .content {
-        margin-left: 0.25em;
-        margin-right: 0.25em;
+@media screen and (max-width: 600px) {
+    .nav-item {
+        display: none;
     }
-    .container {
+    .nav-menu-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: block;
+    }
+    .menu-open {
+        position: relative;
+        overflow: hidden;
+        padding: 0;
+    }
+    /* Keep the menu button in the top right */
+    .menu-open .nav-menu-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .menu-open .nav-item {
+        display: block;
+        text-align: left;
         width: 100%;
-        padding-left: 0.5em;
-        padding-right: 0.5em;
     }
-    .nav-right {
-        float: left;
-        font-size: 0.9em;
-        padding: 0.25em;
+    .menu-open .float-right {
+        float: none;
     }
-    .nav-left {
-        font-size: 1em;
-        padding: 0.2em;
+    .menu-open .dropdown-content {
+        position: relative;
+        background-color: rgb(70, 70, 70);
+        visibility: visible;
+        opacity: 1;
+        width: 100%;
     }
-    h1 {
-        font-size: 2em;
+    .menu-open .dropdown-btn:hover+.dropdown-content {
+        display: block;
     }
-    nav + .content {
+    .menu-open+.content {
+        padding-top: 0;
+    }
+    .content {
+        margin: 0;
+        margin-left: 0.2rem;
+        margin-right: 0.2rem;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+    #top-nav+.content {
         padding-top: 2rem;
     }
-    .dropdown {
-        margin-top: 0.35rem;
+    .card {
+        width: 85%;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        margin: 1rem 0 1rem 0;
     }
-
 }
