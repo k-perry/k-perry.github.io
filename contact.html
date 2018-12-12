@@ -57,6 +57,17 @@
             Copyright &copy; 2018
         </p>
     </div>
+
+    <script>
+        function toggleNavMenu() {
+            const navbar = document.querySelector(".top-nav");
+            if (navbar.className === "top-nav") {
+                navbar.className += " menu-open";
+            } else {
+                navbar.className = "top-nav";
+            }
+        }
+    </script>
 </body>
 
 </html>
