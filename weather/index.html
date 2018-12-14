@@ -22,10 +22,10 @@
 <body>
     <nav class="nav-extended">
         <div class="nav-wrapper purple darken-4">
-            <div class="brand-logo" style="margin-left:15px;" id="location"></div>
+            <div class="brand-logo left" style="margin-left:15px;" id="location"></div>
             <ul class="right">
-                <li><a class="waves-effect waves-light green darken-2 btn modal-trigger" href="#loc-modal">
-                        <i class="material-icons left">edit_location</i>Edit Location</a></li>
+                <li><a class="btn waves-effect waves-light green darken-2 modal-trigger" href="#loc-modal">
+                        <i class="material-icons">edit_location</i></a></li>
             </ul>
         </div>
         <div class="nav-content">
@@ -39,7 +39,8 @@
 
     <div class="container">
         <div class="row">
-            <div id="current" class="col s4 offset-s4">
+            <!-- Current Conditions -->
+            <div id="current" class="col s12 m6 offset-m3 l4 offset-l4">
                 <div class="card blue-grey lighten-5">
                     <div class="card-content">
                         <span class="card-title">Current Conditions</span>
@@ -72,6 +73,7 @@
 
         </div>
         <div class="row">
+            <!-- Daily Forecast  -->
             <div id="daily" class="col s12">
                 <div class="card blue-grey lighten-5">
                     <div class="card-content">
@@ -98,7 +100,8 @@
         </div>
 
         <div class="row">
-            <div id="hourly" class="col s8 offset-s2">
+            <!-- Hourly Forecast -->
+            <div id="hourly" class="col s12 m8 offset-m2">
                 <div class="card blue-grey lighten-5">
                     <div class="card-content">
                         <span class="card-title">Hourly Forecast</span>

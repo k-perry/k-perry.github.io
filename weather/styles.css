@@ -30,3 +30,15 @@
     margin-left: -65px;
     opacity: 0.8;
 } 
+
+@media screen and (max-width: 800px) {
+	.container {
+		margin: 0 !important;
+		width: 100% !important;
+	}
+	
+	#daily, #hourly {
+		padding: 3px !important;
+	}
+
+}
