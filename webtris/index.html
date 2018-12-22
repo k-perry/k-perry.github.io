@@ -3,42 +3,49 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|VT323" rel="stylesheet">
     <title>Webtris</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div class="container">
-        <div id="game">
-            <canvas id="game-canvas"></canvas>
+    <div id="top-bar">
+        Webtris&nbsp;
+        <a id="info"><i class="fas fa-question-circle"></i></a>
+    </div>
+    <div id="left-bar">
+        <div id="level-container">
+            <div class="label">Level:</div>
+            <div id="level"></div>
         </div>
-        <div id="sidebar">
-            <div id="score"></div>
-            <div id="controls-container">
-                <div>
-                    <button class="control-btn" onclick="playerRotate(1)"><i class="fas fa-redo"></i></button>
-                </div>
-                <div>
-                    <button class="control-btn" onclick="playerRotate(-1)"><i class="fas fa-undo"></i></button>
-                </div>
-                <br>
-                <div>
-                    <button class="control-btn" onclick="playerMove(-1)"><i class="fas fa-arrow-left"></i></button>
-                </div>
-                <div>
-                    <button class="control-btn" onclick="playerMove(1)"><i class="fas fa-arrow-right"></i></button>
-                </div>
-            </div>
-
+        <div id="lines-container">
+            <div class="label">Lines:</div>
+            <div id="lines-cleared"></div>
         </div>
     </div>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+    </div>
+    <div id="right-bar">
+        <div id="score-container">
+            <div class="label">Score:</div>
+            <div id="score"></div>
+        </div>
+        <div id="next-container">
+            <div class="label">Next:</div>
+            <div><canvas id="next-piece"></canvas></div>
+        </div>
+    </div>
+    <div id="bottom-bar">
+        <button class="control-btn" onclick="moveLeft()" title="Move Left (Left Arrow)"><i class="fas fa-arrow-left"></i></button>
+        <button class="control-btn" onclick="rotate()" title="Rotate (W)"><i class="fas fa-redo"></i></button>
+        <button class="control-btn" onclick="moveRight()" title="Move Right (Right Arrow)"><i class="fas fa-arrow-right"></i></button>
 
+    </div>
     <div id="game-over-overlay">
         <div id="overlay-content">
             <p>Game Over!</p>
@@ -48,7 +55,9 @@
 
         </div>
     </div>
+    <script src="game.js"></script>
     <script src="app.js"></script>
+
 </body>
 
 </html>
