@@ -41,8 +41,8 @@ a {
 }
 
 .content {
-    margin-left: 10rem;
-    margin-right: 10rem;
+    margin-left: 8rem;
+    margin-right: 8rem;
 }
 
 .float-right {
@@ -188,7 +188,7 @@ a {
     display: none;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1400px) {
     .content {
         margin-left: 2rem;
         margin-right: 2rem;
