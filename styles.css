@@ -1,43 +1,43 @@
 body {
-    margin: 0;
+    background-color: #FFF;
     font-family: Roboto, Calibri, Helvetica, sans-serif;
-    background-color: white;
     font-size: 100%;
-}
-
-a {
-    text-decoration: none;
-}
-
-.top-nav {
-    top: 0;
-    width: 100%;
-    position: fixed;
-    background-color: rgb(40, 40, 40);
-    box-shadow: 0 2px 4px black;
-    font-size: 1rem;
     margin: 0;
-    z-index: 999;
 }
 
-.top-nav a {
-    color: #fff;
+#main-sep {
+    background-image: linear-gradient(to right, rgba(40, 40, 40, 0), rgba(40, 40, 40, 1), rgba(40, 40, 40, 0));
+    border: 0;
+    height: .25rem;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+}
+
+.card {
+    border: 1px solid #969696;
+    box-shadow: 0 2px 4px grey;
+    display: inline-block;
+    height: 640px;
+    margin: 1rem;
+    padding: 1rem 1.5rem;
+    position: relative;
+    vertical-align: top;
+    width: 480px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.center-text {
     text-align: center;
-    transition-duration: 0.3s;
-    letter-spacing: 0.1rem;
 }
 
-.nav-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
-    letter-spacing: 0;
-    padding: 0.5rem;
-    display: inline-block;
-}
-
-.nav-item {
-    padding: 1rem;
-    display: inline-block;
+.clearfix::after {
+    clear: both;
+    content: "";
+    display: table;
 }
 
 .content {
@@ -45,148 +45,144 @@ a {
     margin-right: 8rem;
 }
 
+.content a:hover {
+    color: #780000;
+}
+
+.dropdown-btn {
+    color: #FFF;
+    cursor: pointer;
+    letter-spacing: .1rem;
+    padding: 1rem;
+    transition-duration: .3s;
+}
+
+.dropdown-btn:hover+.dropdown-content,
+.dropdown-content:hover {
+    display: block;
+    opacity: 1;
+    transition-duration: .3s;
+    visibility: visible;
+}
+
+.dropdown-content {
+    background-color: #282828;
+    min-width: 12rem;
+    opacity: 0;
+    position: absolute;
+    transition: visibility .3s linear, opacity .3s linear;
+    visibility: hidden;
+    z-index: 999;
+}
+
+.dropdown-content a {
+    display: block;
+    float: none;
+    padding: .5rem .5rem .5rem 1rem;
+}
+
 .float-right {
     float: right;
 }
 
-.dropdown-btn {
-    cursor: pointer;
-    letter-spacing: 0.1rem;
-    color: white;
-    padding: 1rem;
-    transition-duration: 0.3s;
+.footer {
+    font-size: .75rem;
+    margin-top: 3rem;
+    text-align: center;
 }
 
-.dropdown-content {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0.3s linear, opacity 0.3s linear;
-    position: absolute;
-    z-index: 999;
-    background-color: rgb(40, 40, 40);
-    min-width: 12rem;
-}
-
-.dropdown-content a {
-    float: none;
-    padding: 0.5rem 0.5rem 0.5rem 1rem;
-    display: block;
+.left-text,
+.project-desc {
     text-align: left;
 }
 
-.nav-item:hover {
-    background: rgb(120, 0, 0);
+.nav-item {
+    display: inline-block;
+    padding: 1rem;
 }
 
+.nav-item:hover,
 .dropdown-content a:hover {
-    background: rgb(120, 0, 0);
-}
-
-.dropdown-btn:hover + .dropdown-content,
-.dropdown-content:hover {
-    transition-duration: 0.3s;
-    visibility: visible;
-    opacity: 1;
-    display: block;
+    background: #780000;
 }
 
 .nav-menu-btn {
+    color: #fff;
     display: none;
     font-size: 1.5rem;
-    padding: 0.75rem;
+    padding: .75rem;
 }
 
-.top-nav + .content {
-    padding-top: 4rem;
+.nav-title {
+    display: inline-block;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    letter-spacing: 0;
+    padding: .5rem;
 }
 
-.left-text {
-    text-align: left;
+.project-link {
+    bottom: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 1rem 1.5rem;
+    position: absolute;
+    right: 0;
 }
 
-.center-text {
-    text-align: center;
+.repo-link {
+    bottom: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    left: 0;
+    margin: 1rem 1.5rem;
+    position: absolute;
 }
 
 .right-text {
     text-align: right;
 }
 
-/* clearfix hack.  See https://www.w3schools.com/css/css_float.asp */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-.title {
-    font-size: 3rem;
+.screenshot {
+    border: 1px solid grey;
+    height: 380px;
+    margin-top: .5rem;
+    max-width: 100%;
 }
 
 .subtitle {
     font-size: 1.25rem;
 }
 
-#main-sep {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-    border: 0;
-    height: 0.25rem;
-    background-image: linear-gradient(to right, rgba(40, 40, 40, 0), rgba(40, 40, 40, 1), rgba(40, 40, 40, 0));
+.title {
+    font-size: 3rem;
 }
 
-.card {
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-    width: 480px;
-    height: 640px;
-    margin: 1rem;
-    padding: 1rem 1.5rem 1rem 1.5rem;
-    border: 1px solid rgb(150, 150, 150);
-    box-shadow: 0 2px 4px grey;
+.top-nav {
+    background-color: #282828;
+    box-shadow: 0 2px 4px #000;
+    font-size: 1rem;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
 }
 
-.card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
+.top-nav+.content {
+    padding-top: 4rem;
 }
 
-.screenshot {
-    max-width: 100%;
-    height: 380px;
-    border: 1px solid grey;
-    margin-top: 0.5rem;
-}
-
-.project-link {
-    font-size: 1.1rem;
-    font-weight: bold;
-    /* float: right; */
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 1.25rem;
-}
-
-.content a:hover {
-    color: rgb(120, 0, 0);
-}
-
-.project-desc {
-    text-align: left;
-}
-
-.footer {
-    margin-top: 3rem;
-    text-align: center;
-    font-size: 0.75rem;
-}
-
-.nav-menu-btn {
+.top-nav a {
     color: #fff;
-    display: none;
+    letter-spacing: .1rem;
+    transition-duration: .3s;
 }
+
+a {
+    text-decoration: none;
+}
+
 
 @media screen and (max-width: 1400px) {
     .content {
@@ -196,73 +192,70 @@ a {
 }
 
 @media screen and (max-width: 600px) {
-    .nav-item {
-        display: none;
+    #top-nav+.content {
+        padding-top: 2rem;
     }
-    .nav-menu-btn {
-        position: absolute;
-        right: 0;
-        top: 0;
-        display: block;
+    .card {
+        height: auto;
+        margin: 1rem 0;
+        padding: .5rem 1rem;
+        width: 85%;
+    }
+    .content {
+        margin: 0 .2rem;
     }
     .menu-open {
-        position: relative;
         overflow: hidden;
         padding: 0;
+        position: relative;
     }
-    /* Keep the menu button in the top right */
-    .menu-open .nav-menu-btn {
-        position: absolute;
-        right: 0;
-        top: 0;
+    .menu-open .dropdown-btn:hover+.dropdown-content {
+        display: block;
+    }
+    .menu-open .dropdown-content {
+        background-color: #464646;
+        opacity: 1;
+        position: relative;
+        visibility: visible;
+        width: 100%;
+    }
+    .menu-open .float-right {
+        float: none;
     }
     .menu-open .nav-item {
         display: block;
         text-align: left;
         width: 100%;
     }
-    .menu-open .float-right {
-        float: none;
-    }
-    .menu-open .dropdown-content {
-        position: relative;
-        background-color: rgb(70, 70, 70);
-        visibility: visible;
-        opacity: 1;
-        width: 100%;
-    }
-    .menu-open .dropdown-btn:hover+.dropdown-content {
-        display: block;
+    .menu-open .nav-menu-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
     }
     .menu-open+.content {
         padding-top: 0;
     }
-    .content {
-        margin: 0;
-        margin-left: 0.2rem;
-        margin-right: 0.2rem;
+    .nav-item {
+        display: none;
     }
-    .title {
-        font-size: 2rem;
+    .nav-menu-btn {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
-    .subtitle {
-        font-size: 1rem;
-    }
-    #top-nav + .content {
-        padding-top: 2rem;
-    }
-    .card {
-        width: 85%;
-        height: auto;
-        padding: 0.5rem 1rem 0.5rem 1rem;
-        margin: 1rem 0 1rem 0;
+    .project-link {
+        float: right;
+        padding: .25rem;
+        position: relative;
     }
     .screenshot {
         height: auto;
     }
-    .project-link {
-        float: right;
-        position: relative;
-        padding: 0.25rem;
+    .subtitle {
+        font-size: 1rem;
+    }
+    .title {
+        font-size: 2rem;
     }
 }
