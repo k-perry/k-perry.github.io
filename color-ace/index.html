@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Color Ace</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="left-column">
+        <div class="card">
+            <div class="card-title">Current Color</div>
+            <div class="padding">
+                <div id="hex-container">
+                    <b>Hex:</b>&nbsp;&nbsp;
+                    <input type="text" name="hex" maxlength="7" class="hex" id="hex" oninput="hexChanged()">
+                    <i class="fas fa-check-circle" id="valid-icon" style="font-size: 1.1rem;"></i>
+                    <button class="button left-margin" id="copy-hex" onclick="copyHex()"><i class="fas fa-copy"></i></button>
+                    <button class="button left-margin" id="paste-btn" onclick="pasteHex()" disabled><i class="fas fa-file-import"></i></button>
+                </div>
+                <br>
+                <div id="rgb-container">
+                    <b>RGB:</b>&nbsp;&nbsp;
+                    <input type="number" name="red" min="0" max="255" maxlength="3" class="rgb" id="red" oninput="rgbChanged()">
+                    <input type="number" name="green" min="0" max="255" maxlength="3" class="rgb" id="green" oninput="rgbChanged()">
+                    <input type="number" name="blue" min="0" max="255" maxlength="3" class="rgb" id="blue" oninput="rgbChanged()">
+                    <button class="button left-margin" id="copy-rgb" onclick="copyRGB()"><i class="fas fa-copy"></i></button>
+                </div>
+                <br>
+                <div id="hsl-container">
+                    <b>HSL:</b>&nbsp;&nbsp;
+                    <input type="number" name="hue" min="0" max="360" maxlength="3" class="hsl" id="hue" oninput="hslChanged()">
+                    <input type="number" name="saturation" min="0" max="100" maxlength="3" class="hsl" id="saturation" oninput="hslChanged()">
+                    <input type="number" name="luminance" min="0" max="100" maxlength="3" class="hsl" id="luminance" oninput="hslChanged()">
+                    <button class="button left-margin" id="copy-hsl" onclick="copyHSL()"><i class="fas fa-copy"></i></button>
+                </div>
+                <br>
+                <div id="lightness-container">
+                    <b>Adjust Lightness:</b>&nbsp;&nbsp;
+                    <button class="button" id="light-minus-25" onclick="adjustLightness(-25)">-25</button>
+                    <button class="button" id="light-minus-10" onclick="adjustLightness(-10)">-10</button>
+                    <button class="button" id="light-plus-10" onclick="adjustLightness(10)">+10</button>
+                    <button class="button" id="light-plus-25" onclick="adjustLightness(25)">+25</button>
+                </div>
+                <br>
+                <div id="color-preview" style="width: 200px; height: 150px; border: 1px solid grey; margin: auto;"></div>
+                <br>
+                <div class="center">
+                    <button class="button" onclick="saveColor()"><i class="fas fa-save"></i> Save</button>
+                    <span style="margin: 0 0.5rem 0 0.5rem;"></span>
+                    <button class="button" onclick="randomColor()"><i class="fas fa-random"></i> Random</button>
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card">
+            <div class="card-title">Saved Colors</div>
+            <div style="max-height: calc(100vh - 560px); overflow: auto;">
+                <table id="saved-colors-table" style="width: 100%;" onclick="savedColorsTableClicked(event)">
+                    <thead>
+                        <tr>
+                            <th>Preview</th>
+                            <th>Hex</th>
+                            <th>RGB</th>
+                            <th style="text-align:right;"><i class="fas fa-trash"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody class="monospace"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-column">
+        <div class="card">
+            <div class="card-title">Colors</div>
+            <div class="tab-container">
+                <a href="#" onclick="tabClicked(0);return false;" class="tab-btn">CSS Colors</a>
+                <a href="#" onclick="tabClicked(1);return false;" class="tab-btn">Custom</a>
+
+            </div>
+            <div class="tab">
+                <div style="padding: 0.3rem; text-align: right; font-size: 0.9rem; background-color: #F2F2F2;">
+                    Color Filter:
+                    <select class="select" name="css-color-categories" id="color-filter" oninput="cssColorFilter(event)">
+                        <option value="all">All Colors</option>
+                        <option value="blue">Blue</option>
+                        <option value="brown">Brown</option>
+                        <option value="green">Green</option>
+                        <option value="grey">Grey</option>
+                        <option value="orange">Orange</option>
+                        <option value="purple">Purple</option>
+                        <option value="red">Red</option>
+                        <option value="white">White</option>
+                        <option value="yellow">Yellow</option>
+                    </select>
+                </div>
+
+                <div style="max-height: calc(100vh - 150px); overflow: auto;">
+                    <table id="css-colors-table" style="width: 100%;" onclick="cssColorsTableClicked(event)">
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable(0)">CSS Color Name <i class="fas fa-sort"></i></th>
+                                <th>Preview</th>
+                                <th onclick="sortTable(2)">Hex <i class="fas fa-sort"></th>
+                                <th onclick="sortTable(3)">RGB <i class="fas fa-sort"></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="tab">
+                <div style="width: 100%; height: 400px;">
+                    <canvas id="color-palette" onmousemove="mouseMovePalette(event)" 
+                    onmouseleave="mouseLeavePalette(event)" onmousedown="mouseDownPalette(event)"
+                    onmouseup="mouseUpPalette(event)" style="cursor: crosshair;"></canvas>
+                </div>
+                <div class="monospace" style="padding: 0.5rem; height: 40px;">
+                    <table id="color-palette-preview" style="width:100%; height:100%; text-align:center; border-collapse:collapse;">
+                        <tr>
+                            <td class="palette-preview-cell" id="palette-color"></td>
+                            <td class="palette-preview-cell" id="palette-hex"></td>
+                            <td class="palette-preview-cell" id="palette-rgb"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="color.js"></script>
+    <script src="ui.js"></script>
+    <script src="storage.js"></script>
+    <script src="app.js"></script>
+
+
+</body>
+
+</html>
