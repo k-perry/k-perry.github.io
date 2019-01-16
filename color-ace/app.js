@@ -9,7 +9,6 @@ function hexChanged() {
     if (Color.isValidHexColor(hex)) {
         currentColor = new Color(hex, "hex");
         setColor(currentColor);
-        ui.setHexValid(true);
     } else {
         ui.setHexValid(false);
     }
@@ -193,6 +192,7 @@ function mouseUpPalette(e) {
 }
 
 function setColor(color) {
+    ui.setHexValid(true);
     storage.setCurrentColor(color);
     ui.setColor(color);
 }
