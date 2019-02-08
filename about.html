@@ -1,114 +1,164 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Kevin Perry - About Me</title>
+        <meta name="description" content="About Me" />
+        <meta name="author" content="Kevin Perry" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Dancing+Script"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+            integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
 
-<head>
-    <meta charset="utf-8">
-    <title>Kevin Perry - About Me</title>
-    <meta name="description" content="About Me">
-    <meta name="author" content="Kevin Perry">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-    <nav role="navigation" class="top-nav">
-        <a class="nav-title" href="index.html">Kevin Perry</a>
-        <div class="float-right">
-            <span class="nav-item dropdown-btn">
-                PROJECTS <i class="fa fa-caret-down"></i>
-            </span>
-            <div class="dropdown-content">
-                <a href="https://color-ace.netlify.com/">Color Ace</a>
-                <a href="https://github.com/k-perry/winphonic">Winphonic</a>
-                <a href="https://github.com/k-perry/pulse_observer">Pulse Observer</a>
-                <a href="webtris/index.html">Webtris</a>
-                <a href="weather/index.html">Weather</a>
-                <a href="web-paint/web-paint.html">Web Paint</a>
+    <body>
+        <nav role="navigation" class="top-nav">
+            <a class="nav-title" href="index.html">Kevin Perry</a>
+            <div class="float-right">
+                <span class="nav-item dropdown-btn">
+                    PROJECTS <i class="fa fa-caret-down"></i>
+                </span>
+                <div class="dropdown-content">
+                    <a href="https://color-ace.netlify.com/">Color Ace</a>
+                    <a href="https://github.com/k-perry/winphonic">Winphonic</a>
+                    <a href="https://github.com/k-perry/pulse_observer"
+                        >Pulse Observer</a
+                    >
+                    <a href="webtris/index.html">Webtris</a>
+                    <a href="weather/index.html">Weather</a>
+                    <a href="web-paint/web-paint.html">Web Paint</a>
+                </div>
+                <a class="nav-item" href="about.html">ABOUT</a>
+                <a class="nav-item" href="contact.html">CONTACT</a>
             </div>
-            <a class="nav-item" href="about.html">ABOUT</a>
-            <a class="nav-item" href="contact.html">CONTACT</a>
-        </div>
 
-        <!-- Show the menu button when screen is narrow -->
-        <a href="javascript:void(0);" class="nav-menu-btn" onclick="toggleNavMenu()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </nav>
+            <!-- Show the menu button when screen is narrow -->
+            <a
+                href="javascript:void(0);"
+                class="nav-menu-btn"
+                onclick="toggleNavMenu()"
+            >
+                <i class="fa fa-bars"></i>
+            </a>
+        </nav>
 
-    <div class="content">
-        <h1 class="center-text">About Me</h1>
-        <p style="font-size:1.3em;">
-            After working for years in the accounting and insurance industries, I decided to reboot my career. I've
-            always been extremely passionate about computers, especially software development. I recently finished
-            a Master of Science in Computer Science from Georgia Tech.
-        </p>
-        <h2>Education</h2>
-        <ul>
-            <li><b>Master of Science in Computer Science</b> with Specialization in Computing Systems from Georgia
-                Institute of Technology</li>
-            <ul>
-                <li>GPA: 4.0</li>
-                <li>Selected Coursework:  Algorithms, Networks, Security, UI Design, Operating Systems, Machine
-                    Learning, Software Testing, Computer Vision
-                </li>
-            </ul>
-            <li><b>Master of Professional Accountancy</b> with Concentration in Accounting Systems from Mississippi
-                State University</li>
-            <li><b>Bachelor of Accountancy</b> from Mississippi State University</li>
-        </ul>
-        <h2>Programming Languages and Tools</h2>
-        <ul>
-            <li><b>C</b> - GCC (Linux), Visual C++ (Windows)</li>
-            <li><b>Python</b> - NumPy, SciPy, OpenCV</li>
-            <li><b>JavaScript</b> - jQuery, Node.js, Angular, Bootstrap, Materialize</li>
-            <li><b>HTML</b></li>
-            <li><b>CSS</b></li>
-            <li><b>Java</b></li>
-            <li><b>C#</b></li>
-            <li><b>SQL</b></li>
-            <li><b>Git</b></li>
+        <main class="container">
+            <header>
+                <h1 class="text-center">About Me</h1>
+                <p style="font-size:1.3em;">
+                    After working for years in the accounting and insurance
+                    industries, I decided to reboot my career. I've always been
+                    extremely passionate about computers, especially software
+                    development. I recently finished a Master of Science in
+                    Computer Science from Georgia Tech.
+                </p>
+            </header>
+            <section>
+                <h2>Education</h2>
+                <ul>
+                    <li>
+                        <strong>Master of Science in Computer Science</strong>
+                        with Specialization in Computing Systems from Georgia
+                        Institute of Technology
+                    </li>
+                    <ul>
+                        <li>GPA: 4.0</li>
+                        <li>
+                            Selected Coursework: Algorithms, Networks, Security,
+                            UI Design, Operating Systems, Machine Learning,
+                            Software Testing, Computer Vision
+                        </li>
+                    </ul>
+                    <li>
+                        <strong>Master of Professional Accountancy</strong> with
+                        Concentration in Accounting Systems from Mississippi
+                        State University
+                    </li>
+                    <li>
+                        <strong>Bachelor of Accountancy</strong> from
+                        Mississippi State University
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Technical Skills</h2>
+                <ul>
+                    <li>
+                        <strong>JavaScript</strong> - React, Angular, jQuery,
+                        Node.js, Bootstrap
+                    </li>
+                    <li><strong>HTML5</strong></li>
+                    <li><strong>CSS3</strong></li>
+                    <li><strong>Java</strong></li>
+                    <li><strong>Python</strong></li>
+                    <li><strong>C</strong></li>
+                    <li><strong>C#</strong></li>
+                    <li><strong>SQL</strong></li>
+                    <li><strong>Git</strong></li>
+                </ul>
+            </section>
+            <section>
+                <p>
+                    For more information, please
+                    <a href="contact.html">contact me</a> to request a copy of
+                    my resume.
+                </p>
+            </section>
+        </main>
 
-        </ul>
+        <footer>
+            <p class="text-center">
+                <small>Copyright &copy; 2018 - 2019</small>
+            </p>
+        </footer>
 
-        <p>For more information, please <a href="contact.html">contact me</a> to request a copy of my resume.</p>
-        <p class="footer">
-            Copyright &copy; 2018 - 2019
-        </p>
-    </div>
-
-    <script type="text/javascript">
-        function toggleNavMenu() {
-            const navbar = document.querySelector(".top-nav");
-            if (navbar.className === "top-nav") {
-                navbar.className += " menu-open";
-            } else {
-                navbar.className = "top-nav";
+        <script type="text/javascript">
+            function toggleNavMenu() {
+                const navbar = document.querySelector(".top-nav");
+                if (navbar.className === "top-nav") {
+                    navbar.className += " menu-open";
+                } else {
+                    navbar.className = "top-nav";
+                }
             }
-        }
-    </script>
+        </script>
 
-    <!-- Default Statcounter code for Portfolio https://k-perry.github.io -->
-    <script type="text/javascript">
-        var sc_project = 11914751;
-        var sc_invisible = 1;
-        var sc_security = "066afd9f";
-        var sc_https = 1;
-        var sc_remove_link = 1; 
-    </script>
-    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async>
-    </script>
-    <noscript>
-        <div class="statcounter"><img class="statcounter" src="//c.statcounter.com/11914751/0/066afd9f/1/" alt="Web Analytics Made Easy -
-        StatCounter">
-        </div>
-    </noscript>
-    <!-- End of Statcounter Code -->
-
-</body>
-
+        <!-- Default Statcounter code for Portfolio https://k-perry.github.io -->
+        <script type="text/javascript">
+            var sc_project = 11914751;
+            var sc_invisible = 1;
+            var sc_security = "066afd9f";
+            var sc_https = 1;
+            var sc_remove_link = 1;
+        </script>
+        <script
+            type="text/javascript"
+            src="https://www.statcounter.com/counter/counter.js"
+            async
+        ></script>
+        <noscript>
+            <div class="statcounter">
+                <img
+                    class="statcounter"
+                    src="//c.statcounter.com/11914751/0/066afd9f/1/"
+                    alt="Web Analytics Made Easy -
+        StatCounter"
+                />
+            </div>
+        </noscript>
+        <!-- End of Statcounter Code -->
+    </body>
 </html>

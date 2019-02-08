@@ -1,235 +1,334 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Kevin Perry</title>
+        <meta name="author" content="Kevin Perry" />
+        <meta
+            name="description"
+            content="The portfolio website for Kevin Perry, an Atlanta-based software engineer.  Projects include Color Ace, Winphonic, Pulse Observer, and more."
+        />
+        <meta
+            name="keywords"
+            content="Kevin Perry, software engineer, color ace, winphonic, pulse observer, web development, javascript, python, html, css"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Dancing+Script"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+            integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
 
-<head>
-    <meta charset="utf-8">
-    <title>Kevin Perry</title>
-    <meta name="description" content="Kevin Perry">
-    <meta name="author" content="Kevin Perry">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-    <nav role="navigation" class="top-nav">
-        <a class="nav-title" href="index.html">Kevin Perry</a>
-        <div class="float-right">
-            <span class="nav-item dropdown-btn">
-                PROJECTS <i class="fa fa-caret-down"></i>
-            </span>
-            <div class="dropdown-content">
-                <a href="https://color-ace.netlify.com/">Color Ace</a>
-                <a href="https://github.com/k-perry/winphonic">Winphonic</a>
-                <a href="https://github.com/k-perry/pulse_observer">Pulse Observer</a>
-                <a href="webtris/index.html">Webtris</a>
-                <a href="weather/index.html">Weather</a>
-                <a href="web-paint/web-paint.html">Web Paint</a>
+    <body>
+        <nav role="navigation">
+            <a class="nav-title" href="index.html">Kevin Perry</a>
+            <div class="float-right">
+                <span class="nav-item dropdown-btn">
+                    PROJECTS <i class="fa fa-caret-down"></i>
+                </span>
+                <div class="dropdown-content">
+                    <a href="https://color-ace.netlify.com/">Color Ace</a>
+                    <a href="https://github.com/k-perry/winphonic">Winphonic</a>
+                    <a href="https://github.com/k-perry/pulse_observer"
+                        >Pulse Observer</a
+                    >
+                    <a href="webtris/index.html">Webtris</a>
+                    <a href="weather/index.html">Weather</a>
+                    <a href="web-paint/web-paint.html">Web Paint</a>
+                </div>
+                <a class="nav-item" href="about.html">ABOUT</a>
+                <a class="nav-item" href="contact.html">CONTACT</a>
             </div>
-            <a class="nav-item" href="about.html">ABOUT</a>
-            <a class="nav-item" href="contact.html">CONTACT</a>
+
+            <!-- Show the menu button when screen is narrow -->
+            <a
+                href="javascript:void(0);"
+                class="nav-menu-btn"
+                onclick="toggleNavMenu()"
+            >
+                <i class="fa fa-bars"></i>
+            </a>
+        </nav>
+
+        <div class="container">
+            <header class="text-center">
+                <h1 class="title">Kevin Perry</h1>
+                <p class="subtitle">
+                    I'm a software engineer that just finished a Master's degree
+                    in Computer Science from Georgia Tech. My interests include
+                    front-end, back-end, desktop, mobile, security, UI design,
+                    and more.
+                    <br />
+                    <br />
+                    Check out some of my work below.
+                </p>
+            </header>
+            <hr class="big-separator" />
+            <main class="text-center">
+                <div class="card">
+                    <div class="card-title">Color Ace</div>
+                    <hr />
+                    <a href="https://color-ace.netlify.com/">
+                        <img
+                            src="images/colorace.png"
+                            alt="Color Ace Screenshot"
+                            class="screenshot"
+                        />
+                    </a>
+                    <span class="project-desc">
+                        <p>
+                            Color Ace is a color selection tool for front-end
+                            web developers. Choose from a list of CSS predefined
+                            colors or choose a custom color from the palette.
+                            Copy color information or paste a hex color with one
+                            click. Colors can easily be saved for later.
+                        </p>
+                        <p>
+                            <strong>Made With:</strong> React, JavaScript, HTML,
+                            CSS
+                        </p>
+                    </span>
+                    <hr />
+                    <p>
+                        <a
+                            href="https://github.com/k-perry/color-ace"
+                            class="repo-link"
+                            >VIEW CODE <i class="fas fa-angle-right"></i
+                        ></a>
+
+                        <a
+                            href="https://color-ace.netlify.com/"
+                            class="project-link"
+                            >TRY IT OUT
+                            <i class="fas fa-angle-right"></i>
+                        </a>
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-title">Winphonic</div>
+                    <hr />
+                    <a href="https://github.com/k-perry/winphonic">
+                        <img
+                            src="images/winphonic.jpg"
+                            alt="Winphonic Screenshot"
+                            class="screenshot"
+                        />
+                    </a>
+                    <span class="project-desc">
+                        <p>
+                            Winphonic is an open source, portable, lightweight
+                            audio player for Windows. Supports MP3, OGG, ID3
+                            tags, playlists, keyboard shortcuts, and more. The
+                            executable is only 200 KB and it uses a very small
+                            amount of memory.
+                        </p>
+                        <p><strong>Made With:</strong> C (and some C++)</p>
+                    </span>
+                    <hr />
+                    <p>
+                        <a
+                            href="https://github.com/k-perry/winphonic"
+                            class="project-link"
+                            >READ MORE
+                            <i class="fas fa-angle-right"></i>
+                        </a>
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-title">Pulse Observer</div>
+                    <hr />
+                    <a href="https://github.com/k-perry/pulse_observer">
+                        <img
+                            src="images/pulseobserver.jpg"
+                            alt="Pulse Observer Screenshot"
+                            class="screenshot"
+                        />
+                    </a>
+                    <span class="project-desc">
+                        <p>
+                            Pulse Observer tracks the user's heart rate in real
+                            time using a webcam. It detects tiny variations in
+                            facial skin color that result from blood flow. It
+                            displays the pulse, pulse graph, and regions of
+                            interest in a GUI window.
+                        </p>
+                        <p>
+                            <strong>Made With:</strong> Python, OpenCV, NumPy,
+                            SciPy, Dlib
+                        </p>
+                    </span>
+                    <hr />
+                    <p>
+                        <a
+                            href="https://github.com/k-perry/pulse_observer"
+                            class="project-link"
+                            >READ MORE
+                            <i class="fas fa-angle-right"></i>
+                        </a>
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-title">Webtris</div>
+                    <hr />
+                    <a href="webtris/index.html">
+                        <img
+                            src="images/webtris.png"
+                            alt="Webtris Screenshot"
+                            class="screenshot"
+                        />
+                    </a>
+                    <span class="project-desc">
+                        <p>
+                            Webtris is a modern recreation of a classic video
+                            game. The game pieces, drop speeds, scoring, and
+                            levels are all faithful to the original Tetris on
+                            NES. The game is playable on desktop and mobile web
+                            browsers.
+                        </p>
+                        <p><strong>Made With:</strong> JavaScript, HTML, CSS</p>
+                    </span>
+                    <hr />
+                    <p>
+                        <a
+                            href="https://github.com/k-perry/k-perry.github.io/tree/master/webtris"
+                            class="repo-link"
+                            >VIEW CODE <i class="fas fa-angle-right"></i
+                        ></a>
+                        <a href="webtris/index.html" class="project-link"
+                            >TRY IT OUT <i class="fas fa-angle-right"></i
+                        ></a>
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Weather</div>
+                    <hr />
+                    <a href="weather/index.html">
+                        <img
+                            src="images/weather.jpg"
+                            alt="Weather Screenshot"
+                            class="screenshot"
+                        />
+                    </a>
+                    <span class="project-desc">
+                        <p>
+                            Weather is a web app for checking the weather
+                            forecast of any location in the United States. It
+                            shows the current weather conditions, daily
+                            forecast, and 7-day hourly forecast. Weather data is
+                            retrieved using the
+                            <a
+                                href="https://www.weather.gov/documentation/services-web-api"
+                            >
+                                National Weather Service API</a
+                            >.
+                        </p>
+                        <p>
+                            <strong>Made With:</strong> JavaScript, HTML, CSS,
+                            Materialize
+                        </p>
+                    </span>
+                    <hr />
+                    <p>
+                        <a
+                            href="https://github.com/k-perry/k-perry.github.io/tree/master/weather"
+                            class="repo-link"
+                            >VIEW CODE <i class="fas fa-angle-right"></i
+                        ></a>
+
+                        <a href="weather/index.html" class="project-link"
+                            >TRY IT OUT
+                            <i class="fas fa-angle-right"></i>
+                        </a>
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-title">Web Paint</div>
+                    <hr />
+                    <a href="web-paint/web-paint.html">
+                        <img
+                            src="images/webpaint.jpg"
+                            alt="Web Paint"
+                            class="screenshot"
+                        />
+                    </a>
+                    <span class="project-desc">
+                        <p>
+                            Web Paint is a simple web app for painting. Includes
+                            the following tools: brush, pencil, eraser, paint
+                            bucket, line, rectangle, and circle. Allows you to
+                            choose the brush size and color. Supports saving
+                            files to disk in PNG format.
+                        </p>
+                        <p><strong>Made With:</strong> JavaScript, HTML, CSS</p>
+                    </span>
+                    <hr />
+                    <p>
+                        <a
+                            href="https://github.com/k-perry/k-perry.github.io/tree/master/web-paint"
+                            class="repo-link"
+                            >VIEW CODE <i class="fas fa-angle-right"></i
+                        ></a>
+                        <a href="web-paint/web-paint.html" class="project-link"
+                            >TRY IT OUT
+                            <i class="fas fa-angle-right"></i>
+                        </a>
+                    </p>
+                </div>
+            </main>
+            <footer>
+                <p class="text-center">
+                    <small>Copyright &copy; 2018 - 2019</small>
+                </p>
+            </footer>
         </div>
 
-        <!-- Show the menu button when screen is narrow -->
-        <a href="javascript:void(0);" class="nav-menu-btn" onclick="toggleNavMenu()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </nav>
-
-    <div class="content">
-        <div class="center-text">
-            <h1 class="title">Kevin Perry</h1>
-            <p class="subtitle">
-                I'm a software engineer that just finished a Master's degree in Computer Science from Georgia Tech. My
-                interests include front-end, back-end,
-                desktop, mobile, security, UI design, and more.
-                <br>
-                <br>
-                Check out some of my work below.
-            </p>
-        </div>
-
-        <hr id="main-sep">
-        <div class="clearfix center-text">
-            <div class="card">
-                <div class="card-title left-text">Color Ace</div>
-                <hr>
-                <a href="https://color-ace.netlify.com/">
-                    <img src="images/colorace.png" alt="Color Ace Screenshot" class="screenshot">
-                </a>
-                <span class="project-desc">
-                    <p>
-                        Color Ace is a color selection tool for front-end web developers. Choose from a list of CSS
-                        predefined colors or choose a custom color from the palette. Copy color information or paste a hex color with one click.
-                        Colors can easily be saved for later.
-                    </p>
-                    <p><b>Made With:</b> React, JavaScript, HTML, CSS</p>
-                </span>
-                <hr>
-                <p>
-                    <a href="https://github.com/k-perry/color-ace" class="repo-link">VIEW CODE <i class="fas fa-angle-right"></i></a>
-
-                    <a href="https://color-ace.netlify.com/" class="project-link">TRY IT OUT
-                        <i class="fas fa-angle-right"></i>
-                    </a>
-                </p>
-            </div>
-            <div class="card">
-                <div class="card-title left-text">Winphonic</div>
-                <hr>
-                <a href="https://github.com/k-perry/winphonic">
-                    <img src="images/winphonic.jpg" alt="Winphonic Screenshot" class="screenshot">
-                </a>
-                <span class="project-desc">
-                    <p>
-                        Winphonic is an open source, portable, lightweight audio player for Windows. Supports MP3, OGG,
-                        ID3 tags, playlists, keyboard shortcuts, and more. The executable is only 200 KB and it uses a
-                        very small amount of memory.
-                    </p>
-                    <p><b>Made With:</b> C (and some C++)</p>
-                </span>
-                <hr>
-                <p>
-                    <a href="https://github.com/k-perry/winphonic" class="project-link">READ MORE
-                        <i class="fas fa-angle-right"></i>
-                    </a>
-                </p>
-            </div>
-            <div class="card">
-                <div class="card-title left-text">Pulse Observer</div>
-                <hr>
-                <a href="https://github.com/k-perry/pulse_observer">
-                    <img src="images/pulseobserver.jpg" alt="Pulse Observer Screenshot" class="screenshot">
-                </a>
-                <span class="project-desc">
-                    <p>
-                        Pulse Observer tracks the user's heart rate in real time using a webcam. It detects tiny
-                        variations in facial skin color
-                        that result from blood flow. It displays the pulse, pulse graph, and regions of interest in a
-                        GUI
-                        window.
-                    </p>
-                    <p><b>Made With:</b> Python, OpenCV, NumPy, SciPy, Dlib</p>
-
-                </span>
-                <hr>
-                <p>
-                    <a href="https://github.com/k-perry/pulse_observer" class="project-link">READ MORE
-                        <i class="fas fa-angle-right"></i>
-                    </a>
-                </p>
-            </div>
-            <div class="card">
-                <div class="card-title left-text">Webtris</div>
-                <hr>
-                <a href="webtris/index.html">
-                    <img src="images/webtris.png" alt="Webtris Screenshot" class="screenshot">
-                </a>
-                <span class="project-desc">
-                    <p>
-                        Webtris is a modern recreation of a classic video game. The game pieces, drop speeds, scoring,
-                        and levels are all faithful to the original Tetris on NES. The game is playable on desktop and
-                        mobile
-                        web browsers.
-                    </p>
-                    <p><b>Made With:</b> JavaScript, HTML, CSS</p>
-                </span>
-                <hr>
-                <p>
-                    <a href="https://github.com/k-perry/k-perry.github.io/tree/master/webtris" class="repo-link">VIEW
-                        CODE <i class="fas fa-angle-right"></i></a>
-                    <a href="webtris/index.html" class="project-link">TRY IT OUT <i class="fas fa-angle-right"></i></a>
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-title left-text">Weather</div>
-                <hr>
-                <a href="weather/index.html">
-                    <img src="images/weather.jpg" alt="Weather Screenshot" class="screenshot">
-                </a>
-                <span class="project-desc">
-                    <p>
-                        Weather is a web app for checking the weather forecast of any location in the United States. It
-                        shows the current weather conditions,
-                        daily forecast, and 7-day hourly forecast. Weather data is retrieved using the <a href="https://www.weather.gov/documentation/services-web-api">
-                            National Weather Service API</a>.
-                    </p>
-                    <p><b>Made With:</b> JavaScript, HTML, CSS, Materialize</p>
-                </span>
-                <hr>
-                <p>
-                    <a href="https://github.com/k-perry/k-perry.github.io/tree/master/weather" class="repo-link">VIEW
-                        CODE <i class="fas fa-angle-right"></i></a>
-
-                    <a href="weather/index.html" class="project-link">TRY IT OUT
-                        <i class="fas fa-angle-right"></i>
-                    </a>
-                </p>
-            </div>
-            <div class="card">
-                <div class="card-title left-text">Web Paint</div>
-                <hr>
-                <a href="web-paint/web-paint.html">
-                    <img src="images/webpaint.jpg" alt="Web Paint" class="screenshot">
-                </a>
-                <span class="project-desc">
-                    <p>
-                        Web Paint is a simple web app for painting. Includes the following tools: brush, pencil,
-                        eraser, paint bucket, line, rectangle,
-                        and circle. Allows you to choose the brush size and color. Supports saving files to disk in PNG
-                        format.
-                    </p>
-                    <p><b>Made With:</b> JavaScript, HTML, CSS</p>
-                </span>
-                <hr>
-                <p>
-                    <a href="https://github.com/k-perry/k-perry.github.io/tree/master/web-paint" class="repo-link">VIEW
-                        CODE <i class="fas fa-angle-right"></i></a>
-                    <a href="web-paint/web-paint.html" class="project-link">TRY IT OUT
-                        <i class="fas fa-angle-right"></i>
-                    </a>
-                </p>
-            </div>
-
-        </div>
-        <p class="footer">
-            Copyright &copy; 2018 - 2019
-        </p>
-    </div>
-
-    <script type="text/javascript">
-        function toggleNavMenu() {
-            const navbar = document.querySelector(".top-nav");
-            if (navbar.className === "top-nav") {
-                navbar.className += " menu-open";
-            } else {
-                navbar.className = "top-nav";
+        <!-- Hamburger menu -->
+        <script type="text/javascript">
+            function toggleNavMenu() {
+                const navbar = document.querySelector(".top-nav");
+                if (navbar.className === "top-nav") {
+                    navbar.className += " menu-open";
+                } else {
+                    navbar.className = "top-nav";
+                }
             }
-        }
-    </script>
+        </script>
 
-    <!-- Default Statcounter code for Portfolio https://k-perry.github.io -->
-    <script type="text/javascript">
-        var sc_project = 11914751;
-        var sc_invisible = 1;
-        var sc_security = "066afd9f";
-        var sc_https = 1;
-        var sc_remove_link = 1; 
-    </script>
-    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async>
-    </script>
-    <noscript>
-        <div class="statcounter"><img class="statcounter" src="//c.statcounter.com/11914751/0/066afd9f/1/" alt="Web Analytics Made Easy -
-        StatCounter">
-        </div>
-    </noscript>
-    <!-- End of Statcounter Code -->
-
-</body>
-
+        <!-- Default Statcounter code for Portfolio https://k-perry.github.io -->
+        <script type="text/javascript">
+            var sc_project = 11914751;
+            var sc_invisible = 1;
+            var sc_security = "066afd9f";
+            var sc_https = 1;
+            var sc_remove_link = 1;
+        </script>
+        <script
+            type="text/javascript"
+            src="https://www.statcounter.com/counter/counter.js"
+            async
+        ></script>
+        <noscript>
+            <div class="statcounter">
+                <img
+                    class="statcounter"
+                    src="//c.statcounter.com/11914751/0/066afd9f/1/"
+                    alt="Web Analytics Made Easy - StatCounter"
+                />
+            </div>
+        </noscript>
+        <!-- End of Statcounter Code -->
+    </body>
 </html>
