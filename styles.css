@@ -23,15 +23,14 @@ body {
     box-shadow: 0 2px 4px grey;
     display: inline-block;
     height: 640px;
-    margin: 1rem;
+    width: 480px;
+    margin: 0.5rem;
     padding: 1rem 1.5rem;
     position: relative;
-    vertical-align: top;
-    width: 480px;
     text-align: left;
 }
 
-.card-title {
+.card-header {
     font-size: 1.5rem;
     font-weight: 700;
     text-align: left;
@@ -39,12 +38,6 @@ body {
 
 .text-center {
     text-align: center;
-}
-
-.clearfix::after {
-    clear: both;
-    content: "";
-    display: table;
 }
 
 .container {
@@ -142,11 +135,13 @@ footer {
     text-align: right;
 }
 
-.screenshot {
+.screenshot img {
     border: 1px solid grey;
+    display: block;
     height: 380px;
-    margin-top: 0.5rem;
+    width: auto;
     max-width: 100%;
+    margin: 1rem auto 1rem auto;
 }
 
 .subtitle {
@@ -183,15 +178,26 @@ a {
 }
 
 @media screen and (max-width: 1400px) {
-    .content {
+    .container {
         margin-left: 2rem;
         margin-right: 2rem;
     }
 }
 
+@media screen and (max-width: 900px) {
+    .container {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+
 @media screen and (max-width: 600px) {
-    nav + .content {
-        padding-top: 2rem;
+    nav + .container {
+        padding-top: 3rem;
+    }
+    .big-separator {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
     }
     .card {
         height: auto;
@@ -199,7 +205,7 @@ a {
         padding: 0.5rem 1rem;
         width: 85%;
     }
-    .content {
+    .container {
         margin: 0 0.2rem;
     }
     .menu-open {
