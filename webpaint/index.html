@@ -1,0 +1,112 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Paint</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <body>
+        <div id="topbar">
+            <ul>
+                <li class="topbar-file">
+                    <input type="checkbox" id="topbar-file-btn" />
+                    <label for="topbar-file-btn"
+                        >FILE <i class="fa fa-caret-down"></i
+                    ></label>
+                    <div id="topbar-file-content">
+                        <a href="#" id="new">New</a>
+                        <a href="#" id="save">Save</a>
+                    </div>
+                </li>
+                <li class="topbar-spacer"><br /></li>
+                <li class="topbar-btn">
+                    <a href="#" id="brush" class="active"
+                        ><i class="fa fa-paint-brush"></i
+                    ></a>
+                </li>
+                <li class="topbar-btn">
+                    <a href="#" id="pencil" class="inactive"
+                        ><i class="fa fa-pencil"></i
+                    ></a>
+                </li>
+                <li class="topbar-btn">
+                    <a href="#" id="eraser" class="inactive"
+                        ><i class="fa fa-eraser"></i
+                    ></a>
+                </li>
+                <li class="topbar-btn">
+                    <a href="#" id="fill" class="inactive"
+                        ><img
+                            src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ2OS4zMzMgNDY5LjMzMyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDY5LjMzMyA0NjkuMzMzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCI+CjxnPgoJPGc+CgkJPGc+CgkJCTxwYXRoIGQ9Ik00MjEuMzM0LDI0NC43ODRjMi45NDYtNC4yMzQsNS4wMDQtOS4yMjEsNS4yOTktMTUuMjYzYzEuNDE2LTMwLjM0NC0zNC4wMTUtODcuMTI1LTg4LjE3My0xNDEuMjkyICAgICBDMjg0Ljg2NCwzNC42MzUsMjMwLjAxOSwwLDE5OC40NjIsMGMtMTAuNDc3LDAuMTQ2LTE2LjcyNiw0LjI5Mi0yMC4xMDEsNy42NzdjLTAuMDQ0LDAuMDQ0LTI4LjQ4MSwzNS4yMTctMjguNDgxLDM1LjIxNyAgICAgQzk2Ljc2LDQ1LjI1NSwyMS40MDgsODIuODEsMjEuNDA4LDEzOC42NjdjMCwxNC44NzUsNS4zMTIsMjguMTA0LDE1LjgxLDM5LjMxM2MyLjkxNiwzLjEyMiw2LjM1OCw2LjAyNiwxMC4wNzQsOC44MDIgICAgIGMwLjE2NSwwLjEzNyw4Ljk0OCw1Ljg2NSw5LjEwNyw1Ljk0N2MyNy43MTIsMTYuMDQ4LDY0Ljk2NiwyMC42MDUsODIuMzIzLDIwLjYwNWMyOS4yODcsMCw1MC41NzUtMC43OTIsNzguNDQ1LTExLjM2NSAgICAgYzUuNDM3LTIuMDQyLDExLjc0OCwwLjg4NSwxMy43MjcsNi4xOThjMS4wMjEsMi42NjcsMC45MzcsNS41NjMtMC4yMjksOC4xNTZjLTEuMTY3LDIuNjA0LTMuMjkxLDQuNTk0LTUuOTU3LDUuNjA0ICAgICBjLTMxLjE4MiwxMS44MjMtNTUuMzAzLDEyLjc0LTg1Ljk4NiwxMi43NHMtNzQuMzgzLTguMjQtMTA1LjA0NS0zMS4zNjVjLTQuNTYyLTMuNDU4LTExLjA4MS0yLjY3Ny0xNC43MDYsMS44MjNMNi44MDcsMjIwLjI4MSAgICAgYy0yLjg3NSwyLjg4NS02LjM5NSw4LjEyNS02Ljc3LDE2LjY1NmMtMS4yMDgsMjUuNzUsMjcuMzUsNzEuNjk4LDcyLjY5NiwxMTcuMDUyYzQ0LjIwMSw0NC4yMDgsODkuNTA2LDcyLjc2LDExNS4zOTcsNzIuNzYgICAgIGMwLjA2MywwLDAuNTYyLDAsMC42NDYsMGM5LjE2NS0wLjE3NywxNC42ODUtMy44MzMsMTYuODMxLTYuMDgzbDIwOS45ODYtMTY5LjQ5ICAgICBDNDE1LjY1NSwyNTEuMTM0LDQyMC44MTIsMjQ2LjA3NCw0MjEuMzM0LDI0NC43ODR6IE01Mi43MTksMTYzLjMwNmMtNi43MDgtNy4yMDQtOS45ODEtMTUuMjY0LTkuOTgxLTI0LjYzOSAgICAgYzAtMzUuMjU0LDQ2LjY3NC02My4yMjgsODcuODQyLTcxLjg1M0w1Mi43MTksMTYzLjMwNnogTTI4OS4wOTMsMTM3LjYwNGMtMzYuNDczLTM2LjQ2OS01Ny4yMi02Ni45NjktNjcuNTUxLTg2LjY1NiAgICAgYzIwLjU4LDEwLjc0LDUxLjY3OSwzMi4zNzUsODYuNzU2LDY3LjQ0OGMzNi4yODYsMzYuMzAyLDU2Ljk5LDY2Ljg5Niw2Ny4yOCw4Ni42MjUgICAgIEMzNTUuMTAyLDE5NC4yODEsMzI0LjEyOCwxNzIuNjU2LDI4OS4wOTMsMTM3LjYwNHoiIGZpbGw9IiNGRkZGRkYiLz4KCQkJPHBhdGggZD0iTTQyNC43NzEsMzI0LjYwNGMtMy45NTgtNS43NzEtMTMuNTgzLTUuNzcxLTE3LjU0MiwwYy03LjQzOCwxMC43NzEtNDQuNTYzLDY1LjgwMi00NC41NjMsOTEuMzk2ICAgICBjMCwyOS40MDYsMjMuOTE3LDUzLjMzMyw1My4zMzMsNTMuMzMzYzI5LjQxNywwLDUzLjMzMy0yMy45MjcsNTMuMzMzLTUzLjMzM0M0NjkuMzMzLDM5MC40MDYsNDMyLjIwOCwzMzUuMzc1LDQyNC43NzEsMzI0LjYwNHoiIGZpbGw9IiNGRkZGRkYiLz4KCQk8L2c+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg=="
+                    /></a>
+                </li>
+                <li class="topbar-btn">
+                    <a href="#" id="line" class="inactive"
+                        ><i class="fa fa-minus"></i
+                    ></a>
+                </li>
+                <li class="topbar-btn">
+                    <a href="#" id="rect" class="inactive"
+                        ><i class="fa fa-stop"></i
+                    ></a>
+                </li>
+                <li class="topbar-btn">
+                    <a href="#" id="circle" class="inactive"
+                        ><i class="fa fa-circle"></i
+                    ></a>
+                </li>
+                <li class="topbar-spacer"><br /></li>
+                <li class="topbar-option"><input type="color" id="color" /></li>
+                <li class="topbar-spacer"><br /></li>
+                <li class="topbar-option" id="size">
+                    Size:
+                    <input
+                        type="number"
+                        id="size_val"
+                        value="10"
+                        min="1"
+                        max="100"
+                    />
+                </li>
+            </ul>
+            <a id="download_link"></a>
+        </div>
+
+        <div id="main">
+            <canvas id="canvas"></canvas>
+        </div>
+
+        <script src="js/webpaint.js"></script>
+
+        <!-- Default Statcounter code for Portfolio https://k-perry.github.io -->
+        <script type="text/javascript">
+            var sc_project = 11914751;
+            var sc_invisible = 1;
+            var sc_security = "066afd9f";
+            var sc_https = 1;
+            var sc_remove_link = 1;
+        </script>
+        <script
+            type="text/javascript"
+            src="https://www.statcounter.com/counter/counter.js"
+            async
+        ></script>
+        <noscript>
+            <div class="statcounter">
+                <img
+                    class="statcounter"
+                    src="//c.statcounter.com/11914751/0/066afd9f/1/"
+                    alt="Web Analytics Made Easy -
+        StatCounter"
+                />
+            </div>
+        </noscript>
+        <!-- End of Statcounter Code -->
+    </body>
+</html>

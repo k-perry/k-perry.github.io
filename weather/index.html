@@ -1,188 +1,247 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <title>Weather</title>
+    </head>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Weather</title>
-</head>
+    <body>
+        <nav class="nav-extended">
+            <div class="nav-wrapper purple darken-4">
+                <div
+                    class="brand-logo left"
+                    style="margin-left: 15px"
+                    id="location"
+                ></div>
+                <ul class="right">
+                    <li>
+                        <a
+                            class="btn waves-effect waves-light green darken-2 modal-trigger"
+                            href="#loc-modal"
+                        >
+                            <i class="material-icons">edit_location</i></a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-content">
+                <ul class="tabs">
+                    <li class="tab">
+                        <a class="active black-text" href="#current">Current</a>
+                    </li>
+                    <li class="tab">
+                        <a class="black-text" href="#daily">Daily</a>
+                    </li>
+                    <li class="tab">
+                        <a class="black-text" href="#hourly">Hourly</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-<body>
-    <nav class="nav-extended">
-        <div class="nav-wrapper purple darken-4">
-            <div class="brand-logo left" style="margin-left:15px;" id="location"></div>
-            <ul class="right">
-                <li><a class="btn waves-effect waves-light green darken-2 modal-trigger" href="#loc-modal">
-                        <i class="material-icons">edit_location</i></a></li>
-            </ul>
-        </div>
-        <div class="nav-content">
-            <ul class="tabs">
-                <li class="tab"><a class="active black-text" href="#current">Current</a></li>
-                <li class="tab"><a class="black-text" href="#daily">Daily</a></li>
-                <li class="tab"><a class="black-text" href="#hourly">Hourly</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="row">
-            <!-- Current Conditions -->
-            <div id="current" class="col s12 m6 offset-m3 l4 offset-l4">
-                <div class="card blue-grey lighten-5">
-                    <div class="card-content">
-                        <span class="card-title">Current Conditions</span>
-                        <hr>
-                        <div class="row">
-                            <div class="col s6">
-                                <h1 class="no-padding"><span id="curr-temp"></span>&deg;</h1>
-                                <p>Feels Like <span id="curr-feels-like"></span>&deg;</p>
-
+        <div class="container">
+            <div class="row">
+                <!-- Current Conditions -->
+                <div id="current" class="col s12 m6 offset-m3 l4 offset-l4">
+                    <div class="card blue-grey lighten-5">
+                        <div class="card-content">
+                            <span class="card-title">Current Conditions</span>
+                            <hr />
+                            <div class="row">
+                                <div class="col s6">
+                                    <h1 class="no-padding">
+                                        <span id="curr-temp"></span>&deg;
+                                    </h1>
+                                    <p>
+                                        Feels Like
+                                        <span id="curr-feels-like"></span>&deg;
+                                    </p>
+                                </div>
+                                <div class="col s6 center-align">
+                                    <img
+                                        class="circle responsive-img"
+                                        id="curr-icon"
+                                    />
+                                    <p id="curr-desc"></p>
+                                </div>
                             </div>
-                            <div class="col s6 center-align">
-                                <img class="circle responsive-img" id="curr-icon">
-                                <p id="curr-desc"></p>
+                            <hr />
+                            <div class="row">
+                                <div class="col s6">
+                                    <div class="right-align"><b>Wind:</b></div>
+                                    <div class="right-align">
+                                        <b>Humidity:</b>
+                                    </div>
+                                    <div class="right-align">
+                                        <b>Dewpoint:</b>
+                                    </div>
+                                </div>
+                                <div id="curr-wind"></div>
+                                <div id="curr-humidity"></div>
+                                <div id="curr-dewpoint"></div>
                             </div>
                         </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col s6">
-                                <div class="right-align"><b>Wind:</b></div>
-                                <div class="right-align"><b>Humidity:</b></div>
-                                <div class="right-align"><b>Dewpoint:</b></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Daily Forecast  -->
+                <div id="daily" class="col s12">
+                    <div class="card blue-grey lighten-5">
+                        <div class="card-content">
+                            <span class="card-title">Daily Forecast</span>
+                            <hr />
+                            <div class="row">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Period</th>
+                                            <th>Conditions</th>
+                                            <th>Temp.</th>
+                                            <th>Wind</th>
+                                            <th>Detailed Forecast</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="daily-forecast"></tbody>
+                                </table>
                             </div>
-                            <div id="curr-wind"></div>
-                            <div id="curr-humidity"></div>
-                            <div id="curr-dewpoint"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-        </div>
-        <div class="row">
-            <!-- Daily Forecast  -->
-            <div id="daily" class="col s12">
-                <div class="card blue-grey lighten-5">
-                    <div class="card-content">
-                        <span class="card-title">Daily Forecast</span>
-                        <hr>
-                        <div class="row">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Period</th>
-                                        <th>Conditions</th>
-                                        <th>Temp.</th>
-                                        <th>Wind</th>
-                                        <th>Detailed Forecast</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="daily-forecast">
-                                </tbody>
-                            </table>
+            <div class="row">
+                <!-- Hourly Forecast -->
+                <div id="hourly" class="col s12 m8 offset-m2">
+                    <div class="card blue-grey lighten-5">
+                        <div class="card-content">
+                            <span class="card-title">Hourly Forecast</span>
+                            <hr />
+                            <div class="row">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Day</th>
+                                            <th>Time</th>
+                                            <th>Temp.</th>
+                                            <th>Forecast</th>
+                                            <th>Precip. %</th>
+                                            <th>Wind</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="hourly-forecast"></tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <!-- Hourly Forecast -->
-            <div id="hourly" class="col s12 m8 offset-m2">
-                <div class="card blue-grey lighten-5">
-                    <div class="card-content">
-                        <span class="card-title">Hourly Forecast</span>
-                        <hr>
-                        <div class="row">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Day</th>
-                                        <th>Time</th>
-                                        <th>Temp.</th>
-                                        <th>Forecast</th>
-                                        <th>Precip. %</th>
-                                        <th>Wind</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="hourly-forecast">
-                                </tbody>
-                            </table>
-                        </div>
+        <div id="loc-modal" class="modal">
+            <div class="modal-content">
+                <h4>Edit Location</h4>
+                <input
+                    placeholder="Enter city, state or zip code"
+                    type="text"
+                    class="validate"
+                    id="new-loc"
+                />
+            </div>
+            <div class="modal-footer">
+                <a
+                    href="#!"
+                    class="modal-close waves-effect waves-green btn-flat"
+                    >Cancel</a
+                >
+                <a
+                    href="#!"
+                    class="modal-close waves-effect waves-green btn-flat"
+                    id="save-loc"
+                    >Save</a
+                >
+            </div>
+        </div>
+
+        <div id="error-modal" class="modal">
+            <div class="modal-content">
+                <h4 style="color: red">Error</h4>
+                <p>
+                    Unable to load weather data for the location you entered.
+                    Please try a different location.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a
+                    href="#!"
+                    class="modal-close waves-effect waves-green btn-flat"
+                    >Close</a
+                >
+            </div>
+        </div>
+
+        <!-- Loading screen -->
+        <div class="preloader-background">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
                     </div>
                 </div>
             </div>
+            <div class="loading-text">Loading...</div>
         </div>
-    </div>
 
-    <div id="loc-modal" class="modal">
-        <div class="modal-content">
-            <h4>Edit Location</h4>
-            <input placeholder="Enter city, state or zip code" type="text" class="validate" id="new-loc">
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="save-loc">Save</a>
-        </div>
-    </div>
+        <!-- Scripts -->
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyASLRIOXv3ccywRx3jX46t7fdK3nnGFUsw"></script>
+        <script src="js/storage.js"></script>
+        <script src="js/ui.js"></script>
+        <script src="js/weather.js"></script>
+        <script src="js/app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <div id="error-modal" class="modal">
-        <div class="modal-content">
-            <h4 style="color:red;">Error</h4>
-            <p>Unable to load weather data for the location you entered.</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-        </div>
-    </div>
-
-    <!-- Loading screen -->
-    <div class="preloader-background">
-        <div class="preloader-wrapper big active">
-            <div class="spinner-layer spinner-blue-only">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div>
-                <div class="gap-patch">
-                    <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
+        <!-- Default Statcounter code for Portfolio https://k-perry.github.io -->
+        <script type="text/javascript">
+            var sc_project = 11914751;
+            var sc_invisible = 1;
+            var sc_security = "066afd9f";
+            var sc_https = 1;
+            var sc_remove_link = 1;
+        </script>
+        <script
+            type="text/javascript"
+            src="https://www.statcounter.com/counter/counter.js"
+            async
+        ></script>
+        <noscript>
+            <div class="statcounter">
+                <img
+                    class="statcounter"
+                    src="//c.statcounter.com/11914751/0/066afd9f/1/"
+                    alt="Web Analytics Made Easy -
+        StatCounter"
+                />
             </div>
-        </div>
-        <div class="loading-text">Loading...</div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyASLRIOXv3ccywRx3jX46t7fdK3nnGFUsw"></script>
-    <script src="storage.js"></script>
-    <script src="ui.js"></script>
-    <script src="weather.js"></script>
-    <script src="app.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <!-- Default Statcounter code for Portfolio https://k-perry.github.io -->
-    <script type="text/javascript">
-        var sc_project = 11914751;
-        var sc_invisible = 1;
-        var sc_security = "066afd9f";
-        var sc_https = 1;
-        var sc_remove_link = 1; 
-    </script>
-    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async>
-    </script>
-    <noscript>
-        <div class="statcounter"><img class="statcounter" src="//c.statcounter.com/11914751/0/066afd9f/1/" alt="Web Analytics Made Easy -
-        StatCounter">
-        </div>
-    </noscript>
-    <!-- End of Statcounter Code -->
-
-</body>
-
+        </noscript>
+        <!-- End of Statcounter Code -->
+    </body>
 </html>
